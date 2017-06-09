@@ -1,0 +1,21 @@
+{
+  "name": "php-sandbox",
+  "authors": [
+    "Vitaliy Orlov <orlov0562@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "ace-builds": "^1.2.6",
+    "jquery": "^3.2.1"
+  }
+}
