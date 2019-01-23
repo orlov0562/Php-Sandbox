@@ -79,6 +79,10 @@
     <header>
         <div class="controls">
             <a class="btn" id="btn-run">Save & Run (Ctrl+S)</a>
+            &nbsp;
+            <a class="btn" id="btn-reset">Reset</a>
+            &nbsp;
+            <a class="btn" id="btn-orm">+Idiorm</a>
             <input type="checkbox" id="autosave" checked> Autosave
         </div>
         <div class="about">
@@ -131,7 +135,31 @@
             });
         }
 
+        function append_orm_snippet(){
+
+            let snippet = "include 'idiorm.php';\n"
+                +"ORM::configure('mysql:host=localhost;dbname=sandbox');\n"
+                +"ORM::configure('username', 'mysql');\n"
+                +"ORM::configure('password', 'sandbox');\n"
+                +"ORM::configure('driver_options', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);\n\n"
+            ;
+            editor.getSession().insert({
+                row: 1,
+                column: 0
+            },snippet);
+        }
+
+        function reset_editor(){
+            if (!confirm('Reset editor?')) return false;
+            editor.getSession().setValue("<"+"?php\n");
+        }
+
+
         $('#btn-run').click(update_preview);
+
+        $('#btn-reset').click(reset_editor);
+
+        $('#btn-orm').click(append_orm_snippet);
 
         editor.getSession().on("change", function(){
             if ($('#autosave').is(':checked')) {
