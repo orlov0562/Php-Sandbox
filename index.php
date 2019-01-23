@@ -140,7 +140,7 @@
             let snippet = "include 'idiorm.php';\n"
                 +"ORM::configure('mysql:host=localhost;dbname=sandbox');\n"
                 +"ORM::configure('username', 'mysql');\n"
-                +"ORM::configure('password', 'sandbox');\n"
+                +"ORM::configure('password', 'mysql');\n"
                 +"ORM::configure('driver_options', [PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8']);\n\n"
             ;
             editor.getSession().insert({
